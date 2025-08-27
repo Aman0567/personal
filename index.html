@@ -30,7 +30,8 @@
       height: 120px;
       background: #ff3366;
       transform: rotate(-45deg);
-      animation: pulse 1.2s infinite;
+      animation: pulse 1.2s infinite, fadeIn 2s ease-in-out;
+      box-shadow: 0 0 25px rgba(255, 51, 102, 0.8), 0 0 50px rgba(255, 51, 102, 0.5);
     }
     .heart::before,
     .heart::after {
@@ -49,8 +50,12 @@
       50% { transform: scale(1.1) rotate(-45deg); }
       100% { transform: scale(1) rotate(-45deg); }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8) rotate(-45deg); }
+      to { opacity: 1; transform: scale(1) rotate(-45deg); }
+    }
 
-    /* Floating Hearts */
+    /* Floating Decorative Hearts */
     .floating-hearts {
       position: absolute;
       top: 0; left: 0;
@@ -84,32 +89,48 @@
       100% { transform: translateY(-700px) scale(0.5) rotate(-45deg); opacity: 0; }
     }
 
-    /* Text Styling */
+    /* Falling Rose Petals */
+    .petal {
+      position: absolute;
+      top: -50px;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(45deg);
+      animation: fall 8s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
+      100% { transform: translateY(110vh) rotate(360deg) scale(0.6); opacity: 0; }
+    }
+
+    /* Text Styling - Black with glow */
     h1 {
       margin-top: 40px;
       font-size: 3.2em;
       font-weight: bold;
-      background: linear-gradient(to right, #ff3366, #ff66a3, #ffb3cc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: black; /* Black text */
       text-align: center;
-      border-right: .15em solid #ff66a3;
+      border-right: .15em solid black; /* Typing cursor */
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(18, end), blink .7s step-end infinite, glow 3s ease-in-out infinite;
+      text-shadow: 0 0 5px white, 0 0 15px #fff; /* soft glow */
+      animation: typing 4s steps(18, end), blink .7s step-end infinite, fadeInText 2.5s ease-in-out;
     }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
     @keyframes blink {
       from, to { border-color: transparent }
-      50% { border-color: #ff66a3; }
+      50% { border-color: black; }
     }
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ff99cc; }
-      50% { text-shadow: 0 0 25px #ff66cc; }
-      100% { text-shadow: 0 0 10px #ff99cc; }
+    @keyframes fadeInText {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -123,7 +144,14 @@
     <span style="left:85%; animation-delay:4s;"></span>
   </div>
 
-  <!-- Main Accurate Heart -->
+  <!-- Falling Petals -->
+  <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="petal" style="left: 30%; animation-delay: 2s;"></div>
+  <div class="petal" style="left: 50%; animation-delay: 4s;"></div>
+  <div class="petal" style="left: 70%; animation-delay: 1s;"></div>
+  <div class="petal" style="left: 90%; animation-delay: 3s;"></div>
+
+  <!-- Main Heart -->
   <div class="heart"></div>
 
   <!-- Romantic Message -->
