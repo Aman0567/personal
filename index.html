@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>I Love You Kajal</title>
+  <title>Sorry Kajal</title>
   <style>
     body {
       margin: 0;
@@ -11,11 +11,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #fceff9, #d0f0ff, #ffe6f2, #e0f7fa);
+      background: linear-gradient(135deg, #dfe9f3, #fcefee, #d7f3ff);
       background-size: 400% 400%;
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
-      animation: bgAnimation 15s infinite alternate ease-in-out;
+      animation: bgAnimation 18s infinite alternate ease-in-out;
     }
     @keyframes bgAnimation {
       0% { background-position: 0% 50%; }
@@ -23,103 +23,45 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Accurate Heart */
-    .heart {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      background: #ff3366;
-      transform: rotate(-45deg);
-      animation: pulse 1.2s infinite, fadeIn 2s ease-in-out;
-      box-shadow: 0 0 25px rgba(255, 51, 102, 0.8), 0 0 50px rgba(255, 51, 102, 0.5);
+    /* Sad Emoji */
+    .emoji {
+      font-size: 120px;
+      animation: bounce 2s infinite ease-in-out;
+      text-shadow: 0 0 20px rgba(255,255,255,0.6);
     }
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: #ff3366;
-      border-radius: 50%;
-    }
-    .heart::before { top: -60px; left: 0; }
-    .heart::after { left: 60px; top: 0; }
-
-    @keyframes pulse {
-      0% { transform: scale(1) rotate(-45deg); }
-      50% { transform: scale(1.1) rotate(-45deg); }
-      100% { transform: scale(1) rotate(-45deg); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.8) rotate(-45deg); }
-      to { opacity: 1; transform: scale(1) rotate(-45deg); }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
     }
 
-    /* Floating Decorative Hearts */
-    .floating-hearts {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-    .floating-hearts span {
-      position: absolute;
-      bottom: -50px;
-      width: 20px;
-      height: 20px;
-      background: #ff3366;
-      transform: rotate(-45deg);
-      animation: float 6s infinite;
-    }
-    .floating-hearts span::before,
-    .floating-hearts span::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #ff3366;
-      border-radius: 50%;
-    }
-    .floating-hearts span::before { top: -10px; left: 0; }
-    .floating-hearts span::after { top: 0; left: 10px; }
-
-    @keyframes float {
-      0% { transform: translateY(0) scale(1) rotate(-45deg); opacity: 1; }
-      100% { transform: translateY(-700px) scale(0.5) rotate(-45deg); opacity: 0; }
-    }
-
-    /* Falling Rose Petals */
-    .petal {
+    /* Falling Teardrops */
+    .tear {
       position: absolute;
       top: -50px;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(45deg);
-      animation: fall 8s linear infinite;
-      opacity: 0.8;
+      width: 14px;
+      height: 22px;
+      background: rgba(135,206,250,0.8);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: fall 7s linear infinite;
     }
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
-      100% { transform: translateY(110vh) rotate(360deg) scale(0.6); opacity: 0; }
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(110vh) scale(0.6); opacity: 0; }
     }
 
-    /* Text Styling - Black with glow */
+    /* Message Text */
     h1 {
-      margin-top: 40px;
-      font-size: 3.2em;
+      margin-top: 25px;
+      font-size: 3em;
       font-weight: bold;
-      color: black; /* Black text */
+      color: black;
       text-align: center;
-      border-right: .15em solid black; /* Typing cursor */
+      border-right: .15em solid black;
       white-space: nowrap;
       overflow: hidden;
-      text-shadow: 0 0 5px white, 0 0 15px #fff; /* soft glow */
-      animation: typing 4s steps(18, end), blink .7s step-end infinite, fadeInText 2.5s ease-in-out;
+      text-shadow: 0 0 8px white, 0 0 18px #ccc;
+      animation: typing 4s steps(22, end), blink .7s step-end infinite, fadeIn 2.5s ease-in-out;
     }
-
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -128,33 +70,24 @@
       from, to { border-color: transparent }
       50% { border-color: black; }
     }
-    @keyframes fadeInText {
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <!-- Floating Background Hearts -->
-  <div class="floating-hearts">
-    <span style="left:15%; animation-delay:0s;"></span>
-    <span style="left:30%; animation-delay:1s;"></span>
-    <span style="left:50%; animation-delay:2s;"></span>
-    <span style="left:70%; animation-delay:3s;"></span>
-    <span style="left:85%; animation-delay:4s;"></span>
-  </div>
+  <!-- Falling Tears -->
+  <div class="tear" style="left: 20%; animation-delay: 0s;"></div>
+  <div class="tear" style="left: 40%; animation-delay: 2s;"></div>
+  <div class="tear" style="left: 60%; animation-delay: 4s;"></div>
+  <div class="tear" style="left: 80%; animation-delay: 1s;"></div>
+  <div class="tear" style="left: 90%; animation-delay: 3s;"></div>
 
-  <!-- Falling Petals -->
-  <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
-  <div class="petal" style="left: 30%; animation-delay: 2s;"></div>
-  <div class="petal" style="left: 50%; animation-delay: 4s;"></div>
-  <div class="petal" style="left: 70%; animation-delay: 1s;"></div>
-  <div class="petal" style="left: 90%; animation-delay: 3s;"></div>
+  <!-- Sad Emoji -->
+  <div class="emoji">😔</div>
 
-  <!-- Main Heart -->
-  <div class="heart"></div>
-
-  <!-- Romantic Message -->
-  <h1>I love you Kajal 💖</h1>
+  <!-- Sorry Message -->
+  <h1>I’m Sorry Kajal 😔</h1>
 </body>
 </html>
