@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You Kajal</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fceff9, #d0f0ff, #ffe6f2, #e0f7fa);
+      background-size: 400% 400%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      animation: bgAnimation 15s infinite alternate ease-in-out;
+    }
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Accurate Heart */
+    .heart {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      background: #ff3366;
+      transform: rotate(-45deg);
+      animation: pulse 1.2s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #ff3366;
+      border-radius: 50%;
+    }
+    .heart::before { top: -60px; left: 0; }
+    .heart::after { left: 60px; top: 0; }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    /* Floating Hearts */
+    .floating-hearts {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .floating-hearts span {
+      position: absolute;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background: #ff3366;
+      transform: rotate(-45deg);
+      animation: float 6s infinite;
+    }
+    .floating-hearts span::before,
+    .floating-hearts span::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff3366;
+      border-radius: 50%;
+    }
+    .floating-hearts span::before { top: -10px; left: 0; }
+    .floating-hearts span::after { top: 0; left: 10px; }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1) rotate(-45deg); opacity: 1; }
+      100% { transform: translateY(-700px) scale(0.5) rotate(-45deg); opacity: 0; }
+    }
+
+    /* Text Styling */
+    h1 {
+      margin-top: 40px;
+      font-size: 3.2em;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff3366, #ff66a3, #ffb3cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      border-right: .15em solid #ff66a3;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(18, end), blink .7s step-end infinite, glow 3s ease-in-out infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #ff66a3; }
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff99cc; }
+      50% { text-shadow: 0 0 25px #ff66cc; }
+      100% { text-shadow: 0 0 10px #ff99cc; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Background Hearts -->
+  <div class="floating-hearts">
+    <span style="left:15%; animation-delay:0s;"></span>
+    <span style="left:30%; animation-delay:1s;"></span>
+    <span style="left:50%; animation-delay:2s;"></span>
+    <span style="left:70%; animation-delay:3s;"></span>
+    <span style="left:85%; animation-delay:4s;"></span>
+  </div>
+
+  <!-- Main Accurate Heart -->
+  <div class="heart"></div>
+
+  <!-- Romantic Message -->
+  <h1>I love you Kajal 💖</h1>
+</body>
+</html>
